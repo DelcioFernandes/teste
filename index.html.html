@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+    <html>
+        <meta charset="utf-8">
+        <head>
+            <title>Form teste</title>
+        </head>
+        <body>
+
+            <form method="post" action="" name="submit-to-google-sheet">
+                <input type="text" name="name" placeholder="Digite o seu nome"><br/>
+                <br/>
+                <input type="text" name="email" placeholder="E-mail"><br/>
+
+                <input type="radio" name="gender" value="Maculino"><label>Masculino</label>
+                <input type="radio" name="gender" value="Feminino"><label>Feminino</label>
+                <br/>
+                <br/>
+                <input type="submit" name="submit" value="Enviar">
+            </form>
+            <script>
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbyl0RxxDZ97PYONt4pgOi9_EWppRccjgimDeuBYhrN1jqCNuuqYDKs-ytk__zYguZd8/exec'
+                const form = document.forms['submit-to-google-sheet']
+              
+                form.addEventListener('submit', e => {
+                  e.preventDefault()
+                  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => console.log('Success!', response))
+                    .catch(error => console.error('Error!', error.message))
+                })
+              </script>
+        
+        </body>
+    </html>
