@@ -1,33 +1,38 @@
-<!DOCTYPE HTML>
-    <html>
-        <meta charset="utf-8">
-        <head>
-            <title>Form teste</title>
-        </head>
-        <body>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciador de Processos</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    button {
+      margin: 5px;
+      padding: 10px;
+      background: #007bff;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h2>Gerenciador de Processos (Mobile)</h2>
+  <button onclick="iniciar()">Executar Script</button>
 
-            <form method="post" action="" name="submit-to-google-sheet">
-                <input type="text" name="name" placeholder="Digite o seu nome"><br/>
-                <br/>
-                <input type="text" name="email" placeholder="E-mail"><br/>
-
-                <input type="radio" name="gender" value="Maculino"><label>Masculino</label>
-                <input type="radio" name="gender" value="Feminino"><label>Feminino</label>
-                <br/>
-                <br/>
-                <input type="submit" name="submit" value="Enviar">
-            </form>
-            <script>
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbyl0RxxDZ97PYONt4pgOi9_EWppRccjgimDeuBYhrN1jqCNuuqYDKs-ytk__zYguZd8/exec'
-                const form = document.forms['submit-to-google-sheet']
-              
-                form.addEventListener('submit', e => {
-                  e.preventDefault()
-                  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                    .then(response => console.log('Success!', response))
-                    .catch(error => console.error('Error!', error.message))
-                })
-              </script>
-        
-        </body>
-    </html>
+  <script>
+    function iniciar() {
+      // Aqui você cola o script do gerenciador de processos que criamos
+      alert('Script iniciado!');
+    }
+  </script>
+</body>
+</html>
